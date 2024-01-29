@@ -1,17 +1,33 @@
-
 package com.mycompany.filtroproyecto;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Ninja {
+
     private int ninjaId;
     private String nombre;
     private String rango;
     private String aldea;
+    Set<Integer> ids = new HashSet<>();
 
     public Ninja(int ninjaId, String nombre, String rango, String aldea) {
-        this.ninjaId = ninjaId;
-        this.nombre = nombre;
-        this.rango = rango;
-        this.aldea = aldea;
+        if (!ids.contains(ninjaId)) {
+            //Ids ya agregados desde la inserción de los archivos SQL
+            ids.add(1);
+            ids.add(2);
+            ids.add(3);
+            ids.add(4);
+            //Verificación de IDS
+            ids.add(ninjaId);
+            this.ninjaId = ninjaId;
+            this.nombre = nombre;
+            this.rango = rango;
+            this.aldea = aldea;
+        } else {
+            System.out.println("ID ya registrado");
+        }
+
     }
 
     public int getNinjaId() {
@@ -50,5 +66,5 @@ public class Ninja {
     public String toString() {
         return "Ninja{" + "ninjaId=" + ninjaId + ", nombre=" + nombre + ", rango=" + rango + ", aldea=" + aldea + '}';
     }
-    
+
 }

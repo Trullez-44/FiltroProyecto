@@ -3,14 +3,14 @@ package ConexionDB;
 
 import java.sql.*;
 
-public abstract class Operations {
+public abstract class Operaciones {
     
     public static Connection con;
     public static Statement stmt = null;
     public static ResultSet rs = null;
 
     public static Connection setConnection(Connection connection) {
-        Operations.con = connection;
+        Operaciones.con = connection;
         return connection;
     }
 
